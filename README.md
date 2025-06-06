@@ -13,9 +13,6 @@ Crash Canvas analyzes historical accident data to identify patterns, predict hig
 - **Predictive Modeling**: Machine learning for risk prediction
 - **Visualization**: Interactive dashboards and maps
 
-
-```
-
 ## License
 
 MIT License
