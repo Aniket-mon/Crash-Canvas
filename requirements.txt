@@ -3,5 +3,7 @@ numpy
 scikit-learn
 dash
 plotly
+dash-bootstrap-components
 streamlit
 geopandas
+gunicorn
