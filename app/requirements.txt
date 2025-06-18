@@ -1,10 +1,33 @@
+# Data Science and ML packages 
 pandas
 numpy
 scikit-learn
-dash
 plotly
-dash
-dash-bootstrap-components
 streamlit
 geopandas
 gunicorn
+
+# Core Dash and web framework packages
+dash
+dash-bootstrap-components
+flask
+flask-session
+
+# Database connectivity
+psycopg2-binary
+SQLAlchemy
+pandas
+
+# Security and authentication
+bcrypt
+PyJWT
+cryptography
+
+# Phone number and OTP handling
+phonenumbers
+twilio
+python-dotenv
+
+# Additional utilities
+email-validator
+requests
