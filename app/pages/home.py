@@ -3,16 +3,17 @@ import streamlit.components.v1 as components
 import os
 
 # Only show the loader once per session
+html_path = os.path.join(os.path.dirname(__file__), '..', 'assets', 'home.html')
+with open(html_path, 'r', encoding='utf-8') as file:
+    combined_html = file.read()
+
+# Only show loader/video once per session
 if 'loader_shown' not in st.session_state:
     st.session_state['loader_shown'] = False
 
 if not st.session_state['loader_shown']:
-    html_path = os.path.join(os.path.dirname(__file__), '..', 'assets', 'home.html')
-    with open(html_path, 'r', encoding='utf-8') as file:
-        loader_html = file.read()
-    st.components.v1.html(loader_html, height=800, width=1600)
+    st.components.v1.html(combined_html, height=1080, width=1080)
     st.session_state['loader_shown'] = True
-
 
 def load_css(file_name):
     with open(file_name) as f:
@@ -26,13 +27,6 @@ def load_js(file_name):
 css_path = os.path.join("..", "assets", "home.css")
 js_path = os.path.join("..", "assets", "home.js")
 load_css(css_path)
-
-# video html 
-html_path = os.path.join(os.path.dirname(__file__), '..', 'assets', 'home.html')
-with open(html_path, 'r', encoding='utf-8') as file:
-    video_html = file.read()
-st.components.v1.html(video_html, height=0, width=0)
-
 load_js(js_path)
 
 # snow effect
@@ -53,7 +47,7 @@ snow_html = """
 st.markdown(snow_html, unsafe_allow_html=True)
 
 # Page configuration
-st.set_page_config(page_title="Road Accident Analysis and Prediction System", layout="centered")
+st.set_page_config(page_title="Road Accident Analysis and Prediction System", layout="centered", initial_sidebar_state="expanded")
 
 # Title and description
 st.title("Crash Canvas")
