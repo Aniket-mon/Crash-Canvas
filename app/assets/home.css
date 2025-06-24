@@ -1,0 +1,70 @@
+/* Animated Gradient Road Background */
+body {
+  background: linear-gradient(120deg, #39e269, #1869ba, #e00bab, #d2e23b);
+  background-size: 300% 300%;
+  animation: roadMove 12s ease-in-out infinite;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+@keyframes roadMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Snow Weather Effect */
+.snow-wrapper {
+  pointer-events: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999;
+}
+
+.snow {
+  position: absolute;
+  top: -40px;
+  width: 10px;
+  height: 10px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: falling-snow linear infinite;
+}
+
+.snow:nth-child(1)  { left: 10vw; animation-duration: 5s; animation-delay: 0s; }
+.snow:nth-child(2)  { left: 20vw; animation-duration: 7s; animation-delay: 2s; }
+.snow:nth-child(3)  { left: 30vw; animation-duration: 6s; animation-delay: 1s; }
+.snow:nth-child(4)  { left: 40vw; animation-duration: 8s; animation-delay: 3s; }
+.snow:nth-child(5)  { left: 50vw; animation-duration: 4s; animation-delay: 1.5s; }
+.snow:nth-child(6)  { left: 60vw; animation-duration: 6s; animation-delay: 2.5s; }
+.snow:nth-child(7)  { left: 70vw; animation-duration: 7s; animation-delay: 0.5s; }
+.snow:nth-child(8)  { left: 80vw; animation-duration: 5s; animation-delay: 2.2s; }
+.snow:nth-child(9)  { left: 90vw; animation-duration: 6s; animation-delay: 1.7s; }
+.snow:nth-child(10) { left: 95vw; animation-duration: 8s; animation-delay: 2.7s; }
+
+@keyframes falling-snow {
+  0%   { top: -40px; opacity: 0.8; }
+  90%  { opacity: 0.8; }
+  100% { top: 100vh; opacity: 0; }
+}
+
+/* Blurred video background */
+.video-background {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: -10;
+}
+.video-background video {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  filter: blur(8px);
+  transform: scale(1.05);
+}
