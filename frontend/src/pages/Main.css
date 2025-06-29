@@ -1,0 +1,14 @@
+/* Add custom styles for the FinalMain component */
+.bg-gradient-text {
+  background: linear-gradient(90deg, #FFD700, #7CFC00, #00FFFF);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Navigation menu item hover styles - ONLY underline effect */
+.navigation-item {
+  position: relative;
+  white-space: nowrap;
+}
+

@@ -1,0 +1,81 @@
+{
+  "nodes": [
+    {
+      "id": "src/pages/Main.tsx",
+      "label": "Main",
+      "routes": [
+        "/"
+      ],
+      "isRoot": true
+    },
+    {
+      "id": "src/pages/analysis.tsx",
+      "label": "analysis",
+      "routes": [
+        "/analysis"
+      ]
+    },
+    {
+      "id": "src/pages/about.tsx",
+      "label": "about",
+      "routes": [
+        "/about"
+      ]
+    },
+    {
+      "id": "src/pages/feedback.tsx",
+      "label": "feedback",
+      "routes": [
+        "/feedback"
+      ]
+    },
+    {
+      "id": "src/pages/login.tsx",
+      "label": "login",
+      "routes": [
+        "/login"
+      ]
+    },
+    {
+      "id": "src/pages/register.tsx",
+      "label": "register",
+      "routes": [
+        "/register"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "src\\pages\\Main.tsx:145:29-to-src\\pages\\login.tsx",
+      "source": "src\\pages\\Main.tsx",
+      "target": "src\\pages\\login.tsx",
+      "data": {
+        "viaRoute": "/login",
+        "trigger": {
+          "element": "navigate(\"/login\")",
+          "line": 145,
+          "endLine": 145,
+          "column": 29,
+          "endColumn": 47,
+          "sourceFile": "src\\pages\\Main.tsx"
+        }
+      }
+    },
+    {
+      "id": "src\\pages\\Main.tsx:155:29-to-src\\pages\\register.tsx",
+      "source": "src\\pages\\Main.tsx",
+      "target": "src\\pages\\register.tsx",
+      "data": {
+        "viaRoute": "/register",
+        "trigger": {
+          "element": "navigate(\"/register\")",
+          "line": 155,
+          "endLine": 155,
+          "column": 29,
+          "endColumn": 50,
+          "sourceFile": "src\\pages\\Main.tsx"
+        }
+      }
+    }
+  ]
+}

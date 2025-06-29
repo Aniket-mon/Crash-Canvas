@@ -1,0 +1,246 @@
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .all-\[unset\] {
+    all: unset;
+  }
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 47.4% 11.2%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+
+    --card: transparent;
+    --card-foreground: 222.2 47.4% 11.2%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 215 20.2% 65.1%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 224 71% 4%;
+    --foreground: 213 31% 91%;
+
+    --muted: 223 47% 11%;
+    --muted-foreground: 215.4 16.3% 56.9%;
+
+    --accent: 216 34% 17%;
+    --accent-foreground: 210 40% 98%;
+
+    --popover: 224 71% 4%;
+    --popover-foreground: 215 20.2% 65.1%;
+
+    --border: 216 34% 17%;
+    --input: 216 34% 17%;
+
+    --card: transparent;
+    --card-foreground: 213 31% 91%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 1.2%;
+
+    --secondary: 222.2 47.4% 11.2%;
+    --secondary-foreground: 210 40% 98%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 216 34% 17%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    @apply text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    background: url('/assets/D1.png') no-repeat center center fixed;
+    background-size: cover;
+    
+  }
+}
+:root {
+  --base-font-size: clamp(14px, 2vw, 18px);
+  --title-size: clamp(120px, 15vw, 250px);
+  --subtitle-size: clamp(24px, 4vw, 50px);
+  --spacing-unit: clamp(20px, 5vw, 60px);
+}
+.TT21 {
+  display: inline-block;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 1) 32%,
+    rgba(255, 197, 70, 1) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.TT22 {
+  display: inline-block;     
+  width: 100%;              
+  background: linear-gradient(
+    90deg,
+    #FFC546 15%,
+    #0BFF06 100%
+  );
+  background-clip: text;                     
+  -webkit-background-clip: text;             
+  color: transparent;                        
+  -webkit-text-fill-color: transparent;     
+}
+.TT23 {
+  display: inline-block;     
+  width: 100%;              
+  background: linear-gradient(
+    90deg,
+    #FFFFFF 0%,
+    #FFC546 50%,
+    #0BFF06 100%
+  );
+  background-clip: text;                     
+  -webkit-background-clip: text;             
+  color: transparent;                        
+  -webkit-text-fill-color: transparent;     
+}
+
+/* Buttons */
+
+/* Container centers buttons horizontally and allows wrapping on small screens */
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 24px;            /* Horizontal space between buttons */
+  padding: 30px 20px;
+  flex-wrap: wrap;
+  background-color:none ;
+}
+
+/* Base button styles */
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;               /* Space between icon and text */
+  padding: 6px 16px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 20px;
+  border: 2px solid transparent;
+  min-width: 100px;
+  text-align: center;
+  user-select: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+  text-decoration: none;
+}
+
+/* GitHub button: black background, white icon/text */
+.button.github {
+  background-color: #24292e; /* GitHub black */
+  border-color: #24292e;
+  box-shadow: 0 6px 15px rgba(36, 41, 46, 0.4);
+}
+.button.github:hover,
+.button.github:focus {
+  background-color: #333d44;
+  box-shadow: 0 8px 20px rgba(51, 61, 68, 0.7);
+  transform: translateY(-3px);
+  outline: none;
+}
+
+/* Login button: blue gradient background */
+.button.login {
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  border-color: #2575fc;
+  box-shadow: 0 6px 15px rgba(37, 117, 252, 0.4);
+  color: white;
+}
+.button.login:hover,
+.button.login:focus {
+  background: linear-gradient(135deg, #2575fc, #6a11cb);
+  box-shadow: 0 8px 20px rgba(37, 117, 252, 0.7);
+  transform: translateY(-3px);
+  outline: none;
+}
+
+/* Register button: white background with blue text and border */
+.button.register {
+  background: white;
+  color: #2575fc;
+  border-color: #2575fc;
+  box-shadow: 0 6px 15px rgba(37, 117, 252, 0.15);
+}
+.button.register:hover,
+.button.register:focus {
+  background: #2575fc;
+  color: white;
+  box-shadow: 0 8px 20px rgba(37, 117, 252, 0.7);
+  transform: translateY(-3px);
+  outline: none;
+}
+
+/* SVG Icon styles (fixed size and fill color inherited) */
+.button svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  fill: currentColor;
+  display: block;
+}
+
+/* Responsive Adjustment: stack buttons vertically on smaller screens */
+@media (max-width: 480px) {
+  .button-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+  .button {
+    width: 80%;
+    min-width: unset;
+    justify-content: center;
+  }
+}
