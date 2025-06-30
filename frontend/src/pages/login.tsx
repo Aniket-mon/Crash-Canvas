@@ -1,20 +1,39 @@
 import React, { useState } from 'react';
+import { Header } from "../components/ui/Header";
+import "./register.css";       
+import { useNavigate } from 'react-router-dom';   
 
 export default function Login() {
-    // Remove loading state and effect to keep loading screen infinite
+    const navigate = useNavigate();                   
+
+
     return (
-        <div className="flex flex-col items-center justify-center h-screen space-y-4">
-            {/* CSS spinner */}
-            <div
-                className="
-                    w-12 h-12
-                    border-4 border-t-4 border-gray-200
-                    border-t-gray-600
-                    rounded-full
-                    animate-spin
-                "
+        <div className="relative bg-transparent flex flex-col items-center justify-start h-screen overflow-y-auto space-y-32">
+        <Header />
+
+        <section className="register-form-container mt-40" aria-label="Register Form">
+            <h2>We are glad to have you on board</h2>
+            <form className="register-form" noValidate>
+            <label htmlFor="name">Email</label>
+            <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="you@example.com"
+                required
+                autoComplete="email"
             />
-            <p className="text-lg font-medium">Let the dev cook</p>
+
+            <button type="submit" className="submit-btn">
+                Hop in
+            </button>
+
+
+            <p className="footer-text">
+                Don't be a stranger.  <a href="#" className="login-link"  onClick={() => navigate("/Register")}>Register</a>
+            </p>
+            </form>
+        </section>
         </div>
     );
 }

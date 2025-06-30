@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+
+/* Reset some basics */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.register-form-container {
+  position: relative;
+  background-color: #faf3e6; /* paper base color */
+  width: 360px;
+  padding: 50px 35px 80px;
+  border: 1px solid #d2c1a0;
+  border-radius: 12px;
+
+  /* Old paper texture with subtle stains using box shadows */
+  box-shadow:
+    inset 0 0 60px 12px #f6f0df,
+    inset 6px 16px 18px 0px rgba(187 170 157 / 0.15),
+    0 8px 20px rgba(100 85 64 / 0.15);
+
+  /* Paper grain texture */
+  background-image:
+    radial-gradient(circle 2px at 14% 20%, rgba(150 130 100 / 0.1), transparent 5%),
+    radial-gradient(circle 1.8px at 78% 37%, rgba(125 110 90 / 0.12), transparent 6%),
+    radial-gradient(circle 1.2px at 45% 72%, rgba(140 120 95 / 0.14), transparent 4%);
+
+  /* Paper lines */
+  background-repeat: repeat-y;
+  background-size: 100% 40px;
+  background-position: left 33px top 13px;
+
+  /* Create horizontal lines with linear-gradient */
+  background-image:
+    linear-gradient(to bottom, transparent 37px, #b9a97e 38px, transparent 39px),
+    radial-gradient(circle 2px at 14% 20%, rgba(150 130 100 / 0.1), transparent 5%),
+    radial-gradient(circle 1.8px at 78% 37%, rgba(125 110 90 / 0.12), transparent 6%),
+    radial-gradient(circle 1.2px at 45% 72%, rgba(140 120 95 / 0.14), transparent 4%);
+}
+
+/* Handwriting font for headings and labels */
+.register-form-container h2,
+.register-form label {
+  font-family: 'Patrick Hand', cursive;
+  color: #5a452f;
+  text-shadow: 0 1px 0 #d3c4a0;
+  user-select: none;
+}
+
+/* Heading */
+.register-form-container h2 {
+  font-weight: 400;
+  font-size: 1.6rem;
+  margin: 0 0 28px 0;
+  line-height: 1.2;
+  text-align: center;
+  letter-spacing: 0.06em;
+}
+
+/* Form general layout */
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* Labels */
+.register-form label {
+  display: block;
+  font-weight: 400;
+  font-size: 1.2rem;
+  margin-bottom: 6px;
+}
+
+.register-form label[for="email"] {
+  margin-top: 22px;
+}
+
+/* Input styling: no box, only bottom border line */
+.register-form input[type="text"],
+.register-form input[type="email"] {
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid #b9a97e;
+  padding: 6px 8px;
+  font-family: 'Patrick Hand', cursive;
+  font-size: 1.2rem;
+  color: #4b3b2b;
+  outline-offset: 3px;
+  transition: border-color 0.3s ease;
+  width: 100%;
+}
+
+#name {
+  position: relative;
+  top: 6px; /* pulls it up */
+}
+
+#email {
+  position: relative;
+  top: 5px;
+}
+
+/* Input placeholder color to soften */
+.register-form input::placeholder {
+  color: #a4916b;
+  font-style: italic;
+}
+
+/* On focus: darker line and subtle glow, background remains transparent */
+.register-form input[type="text"]:focus,
+.register-form input[type="email"]:focus {
+  border-color: #917a4a;
+  box-shadow: 0 2px 6px rgba(145 122 74 / 0.4);
+  background-color: transparent;
+  color: #2f1f00;
+  outline: none;
+}
+
+/* Submit button same as before but shifted bottom margin to separate more */
+.submit-btn {
+  background: linear-gradient(135deg, #bda46a, #a57f37);
+  color: #3c2e05;
+  font-weight: 700;
+  font-size: 1.2rem;
+  padding: 14px 0;
+  border: none;
+  border-radius: 28px;
+  cursor: pointer;
+  box-shadow:
+    0 3px 10px rgba(120 96 22 / 0.5),
+    inset 0 -3px 10px rgba(255 255 255 / 0.8);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  font-family: 'Georgia', serif;
+  user-select: none;
+  margin-top: 8px;
+  width: 100%;
+}
+
+.submit-btn:hover,
+.submit-btn:focus {
+  background: linear-gradient(135deg, #b8a857, #bb9f2e);
+  box-shadow:
+    0 6px 12px rgba(160 137 35 / 0.7),
+    inset 0 -3px 14px rgba(255 255 255 / 0.9);
+  outline: none;
+  transform: translateY(-2px);
+}
+
+/* Divider with --- or --- text */
+.divider {
+  margin: 48px 0 20px;
+  text-align: center;
+  font-size: 1.05rem;
+  color: #8b7e52;
+  font-family: 'Patrick Hand', cursive;
+  user-select: none;
+  position: relative;
+  letter-spacing: 0.1em;
+  text-shadow: 0 1px 0 #fff6dc;
+}
+.divider span {
+  background: #faf3e6;
+  padding: 0 22px;
+  position: relative;
+  z-index: 1;
+}
+.divider::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  right: 5%;
+  height: 1px;
+  background: #b9a97e;
+  transform: translateY(-50%);
+  z-index: 0;
+}
+
+/* Google continue button same style as before */
+.google-btn {
+  margin-top: 4px;
+  background-color: #fff;
+  border: 1.8px solid #d3d3d3;
+  border-radius: 28px;
+  padding: 10px 20px;
+  font-weight: 600;
+  color: #555;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  user-select: none;
+  box-shadow: inset 2px 2px 5px rgba(0 0 0 / 0.05);
+  font-family: Arial, sans-serif;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+}
+
+.google-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.google-btn:hover,
+.google-btn:focus {
+  background-color: #f0f0f0;
+  box-shadow: inset 0 0 12px rgba(0 0 0 / 0.1);
+  outline: none;
+  transform: translateY(-1px);
+}
+
+/* Footer text with handwriting font */
+.footer-text {
+  margin-top: 40px;
+  font-family: 'Patrick Hand', cursive;
+  font-size: 1.5rem;
+  color: #6a5d3b;
+  text-align: center;
+  user-select: none;
+}
+
+.footer-text a.login-link {
+  color: #6a5d3b;
+  font-weight: 700;
+  text-decoration: underline dotted;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.footer-text a.login-link:hover,
+.footer-text a.login-link:focus {
+  color: #a58739;
+  outline: none;
+  text-decoration-style: solid;
+}
