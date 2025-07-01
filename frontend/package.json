@@ -2,14 +2,14 @@
   "version": "1.1.0",
   "source": "./index.html",
   "type": "module",
-  "name": "Crash Canvas",
+  "name": "Crash-Canvas",
   "description": "A Road Accident Analysis and Prediction System for data-driven traffic safety insights.",
   "homepage": "https://Aniket-mon.github.io/Crash-Canvas",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist -t"
   },
   "dependencies": {
     "clsx": "2.1.1",
