@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "cd frontend && npm run dev",
     "build": "cd frontend && npm run build",
-    "predeploy": "npm run build && echo '' > dist/.nojekyll",
+    "predeploy": "npm run build && echo '' > /frontend/dist/.nojekyll",
     "deploy": "npm run build && npx gh-pages -d frontend/dist -t"
   },
   "devDependencies": {
