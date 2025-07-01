@@ -33,7 +33,7 @@ export const Main = (): JSX.Element => {
           <div
             className={`fixed inset-0 transition-all duration-200 z-10 ${
               isHovered
-                ? "bg-[url('/crash-canvas/assets/DM3.png')] bg-fixed bg-cover bg-center"
+                ? "bg-[url('/Crash-Canvas/assets/DM3.png')] bg-fixed bg-cover bg-center"
                 : "opacity-0 pointer-events-none"
             }`}
           ></div>

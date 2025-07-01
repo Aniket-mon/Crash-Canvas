@@ -10,7 +10,7 @@ export default defineConfig(({ mode }) => ({
     mode === "development" && screenGraphPlugin()
   ].filter(Boolean),
   publicDir: "./static",
-  base: "/crash-canvas/",
+  base: "/Crash-Canvas/",
   css: {
     postcss: {
       plugins: [tailwind()],
