@@ -4,6 +4,7 @@
   "homepage": "https://Aniket-mon.github.io/crash-canvas",
   "version": "1.0.0",
   "scripts": {
+    "dev": "vite",
     "build": "cd frontend && npm run build",
     "deploy": "npm run build && git subtree push --prefix frontend/dist origin gh-pages",
     "deploy-force": "npm run build && git push origin `git subtree split --prefix frontend/dist main`:gh-pages --force"

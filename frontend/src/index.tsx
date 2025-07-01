@@ -7,7 +7,7 @@ const rootElement = document.getElementById("root");
 if (rootElement) {
   createRoot(rootElement).render(
     <StrictMode>
-      <BrowserRouter basename= "/Crash-Canvas">
+      <BrowserRouter basename= "/crash-canvas">
         <App />
       </BrowserRouter>
     </StrictMode>
