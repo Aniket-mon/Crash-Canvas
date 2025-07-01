@@ -1,0 +1,18 @@
+{
+  "framework": "vite",
+  "installCommand": "npm install",
+  "buildCommand": "npm run build",
+  "outputDirectory": "frontend/dist",
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/frontend/dist/$1"
+    }
+  ],
+  "env": {
+    "VITE_GITHUB_PAGES": "true"
+  },
+  "alias": {
+    "@/*": "./src/components/ui/$1"
+  }
+} 
