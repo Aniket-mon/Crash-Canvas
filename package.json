@@ -8,7 +8,7 @@
     "build": "cd frontend && npm run build",
     "deploy": "npm run build && npx gh-pages -d frontend/dist -t"
   },
-  "devDependencies": {
+  "Dependencies": {
     "gh-pages": "^6.3.0",
     "vite": "6.0.4",
     "clsx": "2.1.1",
@@ -19,6 +19,8 @@
     "tailwind-merge": "2.5.4",
     "@radix-ui/react-navigation-menu": "^1.2.1",
     "class-variance-authority": "^0.7.0",
-    "@radix-ui/react-slot": "^1.1.0"
+    "@radix-ui/react-slot": "^1.1.0",
+    "@animaapp/vite-plugin-screen-graph": "^0.1.5"
+
   }
 }
