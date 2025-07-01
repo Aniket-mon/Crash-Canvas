@@ -1,18 +1,10 @@
 {
-  "framework": "vite",
-  "installCommand": "npm install",
-  "buildCommand": "npm install && npm run build",
-  "outputDirectory": "dist",
-  "routes": [
+  "buildCommand": "cd frontend && npm install && npm run build",
+  "outputDirectory": "frontend/dist",
+  "rewrites": [
     {
-      "src": "/(.*)",
-      "dest": "/index.html"
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
-  ],
-  "env": {
-    "VITE_GITHUB_PAGES": "true"
-  }
-} 
-
-
-
+  ]
+}

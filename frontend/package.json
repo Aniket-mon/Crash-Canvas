@@ -6,9 +6,7 @@
   "description": "A Road Accident Analysis and Prediction System for data-driven traffic safety insights.",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist -t"
+    "build": "vite build"
   },
   "dependencies": {
     "clsx": "2.1.1",
@@ -22,7 +20,6 @@
     "@radix-ui/react-slot": "^1.1.0"
   },
   "devDependencies": {
-    "@animaapp/vite-plugin-screen-graph": "^0.1.5",
     "@types/react": "18.2.0",
     "@types/react-dom": "18.2.0",
     "@vitejs/plugin-react": "4.3.4",
@@ -30,8 +27,5 @@
     "globals": "15.12.0",
     "tailwindcss": "3.4.16",
     "vite": "6.0.4"
-  },
-  "alias": {
-    "@/*": "./src/components/ui/$1"
   }
 }
