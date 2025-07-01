@@ -1,7 +1,7 @@
 {
   "name": "crash-canvas",
   "description": "A Road Accident Analysis and Prediction System for data-driven traffic safety insights.",
-  "homepage": "https://Aniket-mon.github.io/crash-canvas",
+  "homepage": "https://Aniket-mon.github.io/Crash-Canvas",
   "version": "1.0.0",
   "scripts": {
     "dev": "vite",
