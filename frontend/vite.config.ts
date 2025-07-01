@@ -17,7 +17,7 @@ export default defineConfig(({ mode }) => ({
     },
   ].filter(Boolean),
   publicDir: "./static",
-  base: "/Crash-Canvas/",
+  base: "/",
   css: {
     postcss: {
       plugins: [tailwind()],
