@@ -11,8 +11,5 @@
   ],
   "env": {
     "VITE_GITHUB_PAGES": "true"
-  },
-  "alias": {
-    "@/*": "./src/components/ui/$1"
   }
 } 
