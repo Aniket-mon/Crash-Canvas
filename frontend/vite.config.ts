@@ -7,7 +7,7 @@ export default defineConfig(({ mode }) => ({
   plugins: [
     react(),
   ].filter(Boolean),
-  publicDir: "./static",
+  publicDir: "./public",
   base: "/",
   css: {
     postcss: {
