@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "cd frontend && npm run dev",
     "build": "cd frontend && npm run build",
-    "deploy": "npm run build && git subtree push --prefix frontend/dist origin gh-pages",
+    "deploy": "npm run build && gh-pages -d frontend/dist -t",
     "deploy-force": "npm run build && git push origin `git subtree split --prefix frontend/dist main`:gh-pages --force"
   },
   "devDependencies": {
