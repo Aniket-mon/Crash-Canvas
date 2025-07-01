@@ -76,6 +76,70 @@
           "sourceFile": "src\\pages\\Main.tsx"
         }
       }
+    },
+    {
+      "id": "src\\components\\ui\\Header.tsx:72:27-to-src\\pages\\login.tsx",
+      "source": "src\\pages\\login.tsx",
+      "target": "src\\pages\\login.tsx",
+      "data": {
+        "viaRoute": "/login",
+        "trigger": {
+          "element": "navigate(\"/login\")",
+          "line": 72,
+          "endLine": 72,
+          "column": 27,
+          "endColumn": 45,
+          "sourceFile": "src\\components\\ui\\Header.tsx"
+        }
+      }
+    },
+    {
+      "id": "src\\components\\ui\\Header.tsx:79:27-to-src\\pages\\register.tsx",
+      "source": "src\\pages\\login.tsx",
+      "target": "src\\pages\\register.tsx",
+      "data": {
+        "viaRoute": "/register",
+        "trigger": {
+          "element": "navigate(\"/register\")",
+          "line": 79,
+          "endLine": 79,
+          "column": 27,
+          "endColumn": 48,
+          "sourceFile": "src\\components\\ui\\Header.tsx"
+        }
+      }
+    },
+    {
+      "id": "src\\components\\ui\\Header.tsx:72:27-to-src\\pages\\login.tsx",
+      "source": "src\\pages\\login.tsx",
+      "target": "src\\pages\\login.tsx",
+      "data": {
+        "viaRoute": "/login",
+        "trigger": {
+          "element": "navigate(\"/login\")",
+          "line": 72,
+          "endLine": 72,
+          "column": 27,
+          "endColumn": 45,
+          "sourceFile": "src\\components\\ui\\Header.tsx"
+        }
+      }
+    },
+    {
+      "id": "src\\components\\ui\\Header.tsx:79:27-to-src\\pages\\register.tsx",
+      "source": "src\\pages\\login.tsx",
+      "target": "src\\pages\\register.tsx",
+      "data": {
+        "viaRoute": "/register",
+        "trigger": {
+          "element": "navigate(\"/register\")",
+          "line": 79,
+          "endLine": 79,
+          "column": 27,
+          "endColumn": 48,
+          "sourceFile": "src\\components\\ui\\Header.tsx"
+        }
+      }
     }
   ]
 }
