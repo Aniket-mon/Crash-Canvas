@@ -1,5 +1,5 @@
 {
-  "buildCommand": "cd frontend && npm i && npm run build && cd ../backend && npm i &&nodemon --watch api --ext ts,js,json --exec ts-node api/server.ts ",
+  "buildCommand": "npm install -g nodemon && npm install --save-dev nodemon && cd frontend && npm i && npm run build && cd ../backend && npm i &&nodemon --watch api --ext ts,js,json --exec ts-node api/server.ts ",
   "outputDirectory": "frontend/dist",
   "rewrites": [
     {
