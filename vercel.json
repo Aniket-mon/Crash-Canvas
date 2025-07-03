@@ -1,7 +1,6 @@
 {
   "version": 2,
   "name": "crash-canvas",
-  "description": "A Road Accident Analysis and Prediction System for data-driven traffic safety insights.",
   "builds": [
     {
       "src": "frontend/package.json",
