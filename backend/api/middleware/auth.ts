@@ -1,5 +1,4 @@
 import { Request, Response, NextFunction, RequestHandler } from 'express';
-import User from '../models/user';
 import { IApiResponse } from '../types';
 import { IUser } from '../interfaces/user.interface';
 
