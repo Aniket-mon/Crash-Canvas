@@ -4,6 +4,8 @@ import dotenv from 'dotenv';
 import connectDB from './config/database';
 import authRoutes from './routes/auth';
 import { IApiResponse } from './types';
+import { VercelRequest, VercelResponse } from '@vercel/node';
+
 
 dotenv.config();
 
@@ -71,5 +73,9 @@ app.listen(PORT, () => {
   console.log(`🚀 Server running in ${process.env.NODE_ENV || 'development'} mode on port ${PORT}`);
   console.log(`📍 Backend URL: http://localhost:${PORT}`);
 });
+
+export function handler(_req: VercelRequest, res: VercelResponse) {
+  res.status(200).json({ message: "Hello from backend API" });
+}
 
 export default app;

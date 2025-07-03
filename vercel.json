@@ -1,19 +1,25 @@
 {
   "version": 2,
+  "name": "crash-canvas",
+  "description": "A Road Accident Analysis and Prediction System for data-driven traffic safety insights.",
   "builds": [
     {
-      "src": "backend/package.json",
-      "use": "@vercel/node",
-      "config": { "includeFiles": ["dist/**"] }
+      "src": "frontend/package.json",
+      "use": "@vercel/node"
     },
     {
-      "src": "frontend/package.json",
-      "use": "@vercel/static-build",
-      "config": { "distDir": "dist" }
+      "src": "backend/api/**/*.ts",
+      "use": "@vercel/node"
     }
   ],
   "routes": [
-    { "src": "/api/(.*)", "dest": "backend/dist/server.js" },
-    { "src": "/(.*)", "dest": "frontend/dist/index.html" }
+    {
+      "src": "/api/(.*)",
+      "dest": "backend/api/$1.ts"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "frontend/$1"
+    }
   ]
 }

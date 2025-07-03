@@ -10,5 +10,11 @@
     "dev:watch": "concurrently \"tsc --watch\" \"nodemon dist/server.js\"",
     "backend:dev": "nodemon --watch api --ext ts,js,json --exec ts-node api/server.ts",
     "backend:build": "tsc"
+  },
+  "devDependencies": {
+    "@vercel/node": "^5.3.2"
+  },
+  "dependencies": {
+    "dotenv": "^17.0.1"
   }
 }
