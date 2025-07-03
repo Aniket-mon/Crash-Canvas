@@ -1,7 +1,11 @@
 {
-  "buildCommand": "cd frontend && npm install && npm run build",
+  "buildCommand": "cd frontend && npm i && npm run build && cd ../backend && nodemon --watch api --ext ts,js,json --exec ts-node api/server.ts ",
   "outputDirectory": "frontend/dist",
   "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/$1"
+    },
     {
       "source": "/(.*)",
       "destination": "/index.html"

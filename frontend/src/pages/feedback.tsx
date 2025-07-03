@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { Header } from "../components/ui/Header";
+
 
 export default function Feedback() {
     // Remove loading state and effect to keep loading screen infinite
     return (
-        <div className="flex flex-col items-center justify-center h-screen space-y-4">
-            {/* CSS spinner */}
+        <div className="relative bg-transparent flex flex-col items-center justify-start h-screen overflow-y-auto space-y-32">
+            <Header />
             <div
                 className="
                     w-12 h-12

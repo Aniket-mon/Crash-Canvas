@@ -244,3 +244,42 @@
     justify-content: center;
   }
 }
+
+/* Logout button: white background with blue text and border */
+.button.logout {
+  background: white;
+  color: #2575fc;
+  border-color: #2575fc;
+  box-shadow: 0 6px 15px rgba(37, 117, 252, 0.15);
+}
+.button.logout:hover,
+.button.logout:focus {
+  background: #2575fc;
+  color: white;
+  box-shadow: 0 8px 20px rgba(37, 117, 252, 0.7);
+  transform: translateY(-3px);
+  outline: none;
+}
+
+/* SVG Icon styles (fixed size and fill color inherited) */
+.button svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  fill: currentColor;
+  display: block;
+}
+
+/* Responsive Adjustment: stack buttons vertically on smaller screens */
+@media (max-width: 480px) {
+  .button-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+  .button {
+    width: 80%;
+    min-width: unset;
+    justify-content: center;
+  }
+}
