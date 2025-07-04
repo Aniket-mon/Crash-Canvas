@@ -15,7 +15,9 @@ export default function Login() {
         setError(null);
         setMessage(null);
 
-        const res = await fetch(`${import.meta.env.BACK_URL}/api/auth/login`, {
+        const BASE_URL = import.meta.env.BACK_URL;
+
+        const res = await fetch(`${BASE_URL}/api/auth/login`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ email }),

@@ -18,8 +18,9 @@ export default function Register() {
       setError("Name and email are required");
       return;
     }
-    // ...reset error/message...
-  const res = await fetch(`${import.meta.env.BACK_URL}/api/auth/register`, {
+  const BASE_URL = import.meta.env.BACK_URL;
+
+  const res = await fetch(`${BASE_URL}/api/auth/register`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name, email }),
