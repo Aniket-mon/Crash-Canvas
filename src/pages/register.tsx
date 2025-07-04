@@ -18,7 +18,7 @@ export default function Register() {
       setError("Name and email are required");
       return;
     }
-  const BASE_URL = import.meta.env.BACK_URL;
+  const BASE_URL = import.meta.env.VITE_BACKEND_URL;
 
   const res = await fetch(`${BASE_URL}/api/auth/register`, {
       method: "POST",
