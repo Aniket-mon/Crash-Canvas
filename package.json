@@ -5,11 +5,7 @@
   "scripts": {
     "dev": "cd frontend && npm run dev",
     "build": "cd frontend && npm install && npm run build",
-    "deploy": "npm run build",
-    "start": "node dist/server.js",
-    "dev:watch": "concurrently \"tsc --watch\" \"nodemon dist/server.js\"",
-    "backend:dev": "nodemon --watch api --ext ts,js,json --exec ts-node api/server.ts",
-    "backend:build": "tsc"
+    "deploy": "npm run build"
   },
   "devDependencies": {
     "@vercel/node": "^5.3.2"
