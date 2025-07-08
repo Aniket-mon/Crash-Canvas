@@ -1,8 +1,7 @@
 import { useState } from "react";
 import "./Main.css";
 import { Header } from "../components/ui/Header";
-
-
+import { Toaster } from 'react-hot-toast';
 
 export const Main = (): JSX.Element => {
   const [isHovered, setIsHovered] = useState(false);
@@ -12,6 +11,7 @@ export const Main = (): JSX.Element => {
 
   return (
     <div className="bg-transparent flex flex-row justify-center w-full min-h-screen">
+      <Toaster position="top-right" toastOptions={{ duration: 3000 }} />
       <div className="bg-transparent flex flex-row justify-center w-full min-h-screen">
         <div className="w-full max-w-[1440px] min-h-screen relative">
           <div

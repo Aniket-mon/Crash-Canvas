@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Header } from "../components/ui/Header";
 import "./register.css";       
 import { useNavigate } from 'react-router-dom';   
+import toast from 'react-hot-toast';
+
 
 export default function Login() {
     const navigate = useNavigate();    
@@ -22,10 +24,16 @@ export default function Login() {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ email }),
         });
+        const data = await res.json();
+
         if (res.ok) {
-            localStorage.setItem("isLoggedIn", "true");
-            navigate("/analysis");
-        } else setError("Login failed");
+        toast.success(data.message || "Login successful!"); // ✅ Toast
+        localStorage.setItem("isLoggedIn", "true");
+        navigate("/analysis");
+        } else {
+        toast.error(data.message || "Login failed"); // ❌ Toast
+        setError(data.message || "Login failed");
+        }
     };
 
 

@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Header } from "../components/ui/Header";
 import { useNavigate } from 'react-router-dom';
 import "./register.css";
+import toast from 'react-hot-toast';
+
 
 export default function Register() {
   const navigate = useNavigate();
@@ -25,8 +27,14 @@ export default function Register() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name, email }),
     });
-    if (res.ok) navigate("/login");
-    else setError("Registration failed");
+    const data = await res.json();
+    if (res.ok) {
+      toast.success(data.message || "Registration successful!"); // ✅ Toast
+      navigate("/login");
+    } else {
+      toast.error(data.message || "Registration failed"); // ❌ Toast
+      setError(data.message || "Registration failed");
+    }
   };
 
   return (
