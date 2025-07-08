@@ -1,0 +1,100 @@
+/* Container for buttons below each card */
+.glass-btn-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+
+/* Base glass button styles */
+.glass-btn {
+  width: 140px;
+  padding: 12px 0;
+  cursor: pointer;
+  border-radius: 16px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-align: center;
+  color: white;
+  position: relative;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1.8px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  overflow: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.4s ease;
+  user-select: none;
+}
+
+/* Shine effect overlay */
+.glass-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -80%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent 100%
+  );
+  transform: skewX(-25deg);
+  z-index: 0;
+  pointer-events: none;
+  transition: none;
+}
+
+/* Hover states for shine animation */
+.glass-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 30px rgba(255, 255, 255, 0.35);
+}
+
+.glass-btn:hover::before {
+  animation: shine 1s forwards;
+}
+
+@keyframes shine {
+  100% {
+    left: 125%;
+  }
+}
+
+/* GitHub button specific styles */
+.github-btn {
+  background: rgba(24, 23, 22, 0.3);
+  border-color: rgba(255, 255, 255, 0.28);
+  color: #f0f0f0;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.github-btn:hover {
+  background: rgba(36, 39, 41, 0.7);
+  color: #6cc644;
+  box-shadow:
+    0 0 8px #6cc644,
+    0 0 26px #6cc644;
+}
+
+/* LinkedIn button specific styles */
+.linkedin-btn {
+  background: rgba(10, 102, 194, 0.3);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #cfe2f3;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.linkedin-btn:hover {
+  background: rgba(10, 102, 194, 0.85);
+  color: #e1e9f7;
+  box-shadow:
+    0 0 10px #0a66c2,
+    0 0 36px #0a66c2;
+}
