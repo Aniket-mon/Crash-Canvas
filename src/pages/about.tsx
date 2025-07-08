@@ -19,7 +19,7 @@ export default function About() {
     {
       image: "../../assets/vaishnavi.jpg",
       title: "Vaishnavi Dwivedi",
-      tagline: "Data Scientist",
+      tagline: "Work with passion. Evolve with purpose. Lead with intention.",
       handle: "@vaishnavi",
       borderColor: "#F43F5E",
       gradient: "linear-gradient(195deg,#F43F5E,#000)",

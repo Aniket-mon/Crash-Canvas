@@ -44,7 +44,7 @@ export default function Login() {
         <section className="register-form-container mt-40" aria-label="Register Form">
             <h2>We are glad to have you on board</h2>
             <form className="register-form" noValidate onSubmit={handleSubmit}>
-            <div style={{ marginTop: "10px" }}>
+            <div style={{ marginTop: "9px" }}>
                 <label htmlFor="email">Email</label>
                 <input
                     type="email"
