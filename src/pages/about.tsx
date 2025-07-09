@@ -65,7 +65,7 @@ export default function About() {
           <div className="flex items-start justify-center gap-12 mt-[245px] ml-[-1150px] px-4" >
             <ChromaGrid items={aboutPeople2} radius={350} />
           </div>
-          <div className="max-w-[650px] leading-snug mt-[-270px] ml-[350px]">
+          <div className="max-w-[650px]  leading-snug mt-[-270px] ml-[350px]">
             <h1 className="jua-font text-[2.2rem]  "  >
               "Work with passion. Evolve with purpose.<br/> Lead with intention."
             </h1>

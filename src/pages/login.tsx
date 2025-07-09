@@ -27,16 +27,18 @@ export default function Login() {
         const data = await res.json();
 
         if (res.ok) {
-        toast.success(data.message || "Login successful!"); // ✅ Toast
-        localStorage.setItem("isLoggedIn", "true");
-        navigate("/analysis");
+            setMessage("Logging in...");
+            toast.success(data.message || "Login successful!");
+            localStorage.setItem("isLoggedIn", "true");
+
+            setTimeout(() => {
+                navigate("/analysis");
+            }, 2000); // delay to show spinner
         } else {
-        toast.error(data.message || "Login failed"); // ❌ Toast
-        setError(data.message || "Login failed");
+            toast.error(data.message || "Login failed");
+            setError(data.message || "Login failed");
         }
     };
-
-
     return (
         <div className="relative bg-[url('../../assets/D1.png')] bg-cover bg-center flex flex-col items-center justify-start h-screen overflow-y-auto space-y-32">
         <Header />
@@ -60,8 +62,13 @@ export default function Login() {
             {error && <div className="error-message">{error}</div>}
             {message && <div className="success-message">{message}</div>}
 
-            <button type="submit" className="submit-btn">
-                Hop in
+            <button 
+            type="submit"
+            className={`register-submit ${message ? 'submitted' : ''}`}
+            disabled={!!message}
+            >
+            <span className="btn-text">Hop in</span>
+            <span className="btn-loader"></span>
             </button>
 
             <p className="footer-text">

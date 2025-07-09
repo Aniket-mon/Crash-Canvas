@@ -2,6 +2,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Kameron:wght@700&display=swap');
 
+.p-rating .p-rating-icon.pi.pi-star-fill {
+  color: #FFD700 !important; /* gold */
+}
+
 body {
   background: #EDC58C;
 }

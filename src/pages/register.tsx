@@ -29,8 +29,8 @@ export default function Register() {
     });
     const data = await res.json();
     if (res.ok) {
-      toast.success(data.message || "Registration successful!"); // ✅ Toast
-      navigate("/login");
+      toast.success(data.message || "Registration successful!");
+      setTimeout(() => navigate("/login"), 5000); // ✅ Toast
     } else {
       toast.error(data.message || "Registration failed"); // ❌ Toast
       setError(data.message || "Registration failed");
@@ -59,7 +59,14 @@ export default function Register() {
             placeholder="you@example.com" required autoComplete="email"
           />
 
-          <button type="submit" className="submit-btn">Welcome</button>
+          <button 
+            type="submit"
+            className={`register-submit ${message ? "submitted" : ""}`}
+            disabled={!!message}
+          >
+            <span className="btn-text">Welcome</span>
+            <span className="btn-loader"></span>
+          </button>
 
           {error && <p className="error-text">{error}</p>}
           {message && <p className="success-text">{message}</p>}
