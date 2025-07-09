@@ -1,0 +1,28 @@
+.analysis-default {
+  position: relative;
+  color: #fc6dfafc;
+  font-weight: 790;
+  letter-spacing: 1.6px;
+  text-shadow:
+    0 0 5px #b100ab,
+    0 0 10px #943600e6,
+    0 0 20px #d87205,
+    0 0 40px #ffffff;
+  -webkit-text-stroke: 0.5px white;
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+
+
+.analysis-default:hover {
+  transform: scale(1.2);
+  text-shadow:
+    0 0 10px #f15e09,
+    0 0 20px #ffbe33,
+    0 0 30px #ffe555,
+    0 0 50px #ffd700;
+}
+
+.analysis-default:hover::before {
+  transform: scaleX(1);
+}

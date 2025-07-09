@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import './ana.css';
+
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -61,7 +63,9 @@ export const Header = () => {
                   }}
                   className="relative inline-block px-2 py-1 font-['Montserrat'] font-medium text-black text-xl transition-colors duration-300 hover:text-gray-600"
                 >
-                  {item.label}
+                  <span className={item.label === "Analysis" ? "analysis-default" : ""}>
+                    {item.label}
+                  </span>
                   <span
                     className={`
                       absolute bottom-0 left-0

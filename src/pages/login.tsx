@@ -38,7 +38,7 @@ export default function Login() {
 
 
     return (
-        <div className="relative bg-transparent flex flex-col items-center justify-start h-screen overflow-y-auto space-y-32">
+        <div className="relative bg-[url('../../assets/D1.png')] bg-cover bg-center flex flex-col items-center justify-start h-screen overflow-y-auto space-y-32">
         <Header />
 
         <section className="register-form-container mt-40" aria-label="Register Form">

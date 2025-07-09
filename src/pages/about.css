@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Jua&family=Kalnia:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kameron:wght@700&display=swap');
+
+body {
+  background: #EDC58C;
+}
+
+.kalnia-font {
+  font-family: 'Kalnia', serif;
+}
+
+.jua-font {
+  font-family: 'Jua', sans-serif;
+}
+
+.kameron-font {
+  font-family: 'Kameron', sans-serif;
+}
+.gamja-font {
+  font-family: 'Gamja Flower', cursive;
+}

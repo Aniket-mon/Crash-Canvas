@@ -38,7 +38,7 @@ export default function Register() {
   };
 
   return (
-    <div className="relative bg-transparent flex flex-col items-center h-screen overflow-y-auto space-y-32">
+    <div className="relative bg-[url('../../assets/D1.png')] bg-cover bg-center flex flex-col items-center h-screen overflow-y-auto space-y-32">
       <Header />
       <section className="register-form-container mt-40" aria-label="Register Form">
         <h2>Tell us about yourself before hopping in</h2>
