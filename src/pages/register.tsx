@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Header } from "../components/ui/Header";
 import { useNavigate } from 'react-router-dom';
 import "./register.css";
-import toast from 'react-hot-toast';
+import { Toast } from 'primereact/toast';
+
 
 
 export default function Register() {
@@ -12,6 +13,15 @@ export default function Register() {
   const [error, setError] = useState<string | null>(null);
   const [message, setMessage] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const toast = useRef<Toast>(null);
+
+  const showSuccess = () => {
+      toast.current?.show({severity:'success', summary: 'Success', detail:'You are one of us now. Redirecting to Login page', life: 3000});
+  }
+
+  const showError = () => {
+      toast.current?.show({severity:'error', summary: 'Error', detail:'Double check and try again.', life: 3000});
+  };
 
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -33,10 +43,12 @@ export default function Register() {
     });
     const data = await res.json();
     if (res.ok) {
-      toast.success(data.message || "Registration successful!");
-      setTimeout(() => navigate("/login"), 5000); // ✅ Toast
+      showSuccess();
+      setTimeout(() => {
+        navigate("/login", { state: { showSuccessToast: true } });
+      }, 2000); 
     } else {
-      toast.error(data.message || "Registration failed"); // ❌ Toast
+      showError();
       setError(data.message || "Registration failed");
       setLoading(false);
     }
@@ -45,6 +57,7 @@ export default function Register() {
   return (
     <div className="relative bg-[url('../../assets/D1.png')] bg-cover bg-center flex flex-col items-center h-screen overflow-y-auto space-y-32">
       <Header />
+      <Toast ref={toast} />
       <section className="register-form-container mt-40" aria-label="Register Form">
         <h2>Tell us about yourself before hopping in</h2>
         <form className="register-form" noValidate onSubmit={handleSubmit}>

@@ -3,7 +3,6 @@ import { Header } from "../components/ui/Header";
 import "./register.css";       
 import { useNavigate } from 'react-router-dom';   
 import { Toast } from 'primereact/toast';
-import { Button } from 'primereact/button';
 
 
 export default function Login() {
@@ -20,7 +19,7 @@ export default function Login() {
     }
 
     const showError = () => {
-        toast.current?.show({severity:'error', summary: 'Error', detail:'Message Content', life: 3000});
+        toast.current?.show({severity:'error', summary: 'Error', detail:'Double check and try again.', life: 3000});
     }
     
 
