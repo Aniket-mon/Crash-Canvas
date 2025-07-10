@@ -45,7 +45,7 @@ export default function Login() {
             localStorage.setItem("isLoggedIn", "true");
 
             setTimeout(() => {
-                navigate("/analysis");
+                navigate("/analysis", { state: { showSuccessToast: true } });
             }, 2000); // delay to show spinner
         } else {
             showError();
