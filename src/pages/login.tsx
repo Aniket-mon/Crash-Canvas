@@ -8,14 +8,17 @@ import toast from 'react-hot-toast';
 export default function Login() {
     const navigate = useNavigate();    
     
-    const [email, setEmail] = useState("");
+    const [email, setEmail] = useState(""); 
     const [error, setError] = useState<string | null>(null);
     const [message, setMessage] = useState<string | null>(null);
+    const [loading, setLoading] = useState(false);
+    
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setError(null);
         setMessage(null);
+        setLoading(true);
 
         const BASE_URL = import.meta.env.VITE_BACKEND_URL;
 
@@ -37,6 +40,7 @@ export default function Login() {
         } else {
             toast.error(data.message || "Login failed");
             setError(data.message || "Login failed");
+            setLoading(false);
         }
     };
     return (
@@ -64,8 +68,8 @@ export default function Login() {
 
             <button 
             type="submit"
-            className={`register-submit ${message ? 'submitted' : ''}`}
-            disabled={!!message}
+            className={`register-submit ${loading ? "submitted" : ""}`}
+            disabled={loading}
             >
             <span className="btn-text">Hop in</span>
             <span className="btn-loader"></span>

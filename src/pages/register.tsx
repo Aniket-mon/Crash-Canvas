@@ -11,13 +11,17 @@ export default function Register() {
   const [email, setEmail] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [message, setMessage] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
+
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
     setMessage(null);
+    setLoading(true);
     if (!name || !email) {
       setError("Name and email are required");
+      setLoading(false);
       return;
     }
   const BASE_URL = import.meta.env.VITE_BACKEND_URL;
@@ -34,6 +38,7 @@ export default function Register() {
     } else {
       toast.error(data.message || "Registration failed"); // ❌ Toast
       setError(data.message || "Registration failed");
+      setLoading(false);
     }
   };
 
@@ -61,8 +66,8 @@ export default function Register() {
 
           <button 
             type="submit"
-            className={`register-submit ${message ? "submitted" : ""}`}
-            disabled={!!message}
+            className={`register-submit ${loading ? "submitted" : ""}`}
+            disabled={loading}
           >
             <span className="btn-text">Welcome</span>
             <span className="btn-loader"></span>
