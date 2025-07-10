@@ -1,21 +1,37 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect, useRef } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { Header } from "../components/ui/Header";
+import { Toast } from "primereact/toast";
+
 
 export default function Analysis() {
   const navigate = useNavigate();
+  const location = useLocation();
+  const toast = useRef<Toast>(null);
   // Immediately determine if loader should show
   const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
   const [showLoader] = useState(!isLoggedIn);
+  
 
-  useEffect(() => {
-    if (!isLoggedIn) {
-      const timer = setTimeout(() => {
-        navigate("/login", { replace: true });
-      }, 5000);
-      return () => clearTimeout(timer);
-    }
-  }, [isLoggedIn, navigate]);
+    useEffect(() => {
+      if (location.state?.showSuccessToast) {
+        toast.current?.show({
+          severity: 'success',
+          summary: 'Success',
+          detail: 'The wait is over !!',
+          life: 3000,
+        });
+      }
+    }, [location.state]);
+
+    useEffect(() => {
+      if (!isLoggedIn) {
+        const timer = setTimeout(() => {
+          navigate("/login", { replace: true });
+        }, 5000);
+        return () => clearTimeout(timer);
+      }
+    }, [isLoggedIn, navigate]);
   
   if (showLoader) {
     return (
@@ -42,6 +58,7 @@ export default function Analysis() {
   return (
     <div className="relative bg-transparent flex flex-col items-center justify-start h-screen overflow-y-auto space-y-32">
       <Header />
+      <Toast ref={toast} />
       <div
         className="
           w-12 h-12
