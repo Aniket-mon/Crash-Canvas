@@ -16,7 +16,7 @@ export default function Register() {
   const toast = useRef<Toast>(null);
 
   const showSuccess = () => {
-      toast.current?.show({severity:'success', summary: 'Success', detail:'You are one of us now. Redirecting to Login page', life: 3000});
+      toast.current?.show({severity:'success', summary: 'Success. You are one of us now.', detail:'Redirecting to Login page', life: 3000});
   }
 
   const showError = () => {

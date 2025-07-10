@@ -1,17 +1,50 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./Main.css";
 import { Header } from "../components/ui/Header";
 import { Toaster } from 'react-hot-toast';
+import CountUp from "./load1";
 
 
 export const Main = (): JSX.Element => {
   const [isHovered, setIsHovered] = useState(false);
+  const [showLoader, setShowLoader] = useState(true); // loading screen
+  const [hideLoader, setHideLoader] = useState(false); 
+
+    useEffect(() => {
+    // Start hiding loader after 5 seconds (count + slide duration)
+    const timer = setTimeout(() => {
+      setHideLoader(true); // start slide left
+      setTimeout(() => setShowLoader(false), 1000); // remove from DOM after slide
+    }, 7500); // matches CountUp duration
+
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleMouseEnter = () => setIsHovered(true);
   const handleMouseLeave = () => setIsHovered(false);
 
   return (
     <div className="w-screen min-h-screen overflow-y-auto bg-[url('../../assets/D1.png')] bg-cover bg-center">
+      {/*Loading Overlay */}
+      {showLoader && (
+        <div
+          className={`fixed top-0 left-0 w-screen h-screen bg-black z-50 flex items-center justify-center transition-transform duration-1000 ${
+            hideLoader ? "-translate-x-full" : "translate-x-0"
+          }`}
+        >
+          <h1 className="text-white text-5xl font-bold">
+            <CountUp
+              from={0}
+              to={100}
+              separator=""
+              direction="up"
+              duration={5} // seconds
+              className="count-up-text"
+            />
+            %
+          </h1>
+        </div>
+      )}
       <div className="relative bg-transparent flex flex-col items-center justify-start min-h-screen ml-[-95px]">
         <Toaster position="top-right" toastOptions={{ duration: 3000 }} />
         <div className="bg-transparent flex flex-row justify-center w-full min-h-screen">

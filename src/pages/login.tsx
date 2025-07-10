@@ -1,7 +1,7 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Header } from "../components/ui/Header";
 import "./register.css";       
-import { useNavigate } from 'react-router-dom';   
+import { useNavigate, useLocation } from 'react-router-dom';   
 import { Toast } from 'primereact/toast';
 
 
@@ -12,6 +12,7 @@ export default function Login() {
     const [error, setError] = useState<string | null>(null);
     const [message, setMessage] = useState<string | null>(null);
     const [loading, setLoading] = useState(false);
+    const location = useLocation();
     const toast = useRef<Toast>(null);
 
     const showSuccess = () => {
@@ -22,6 +23,11 @@ export default function Login() {
         toast.current?.show({severity:'error', summary: 'Error', detail:'Double check and try again.', life: 3000});
     }
     
+    useEffect(() => {
+        if (location.state?.showSuccessToast) {
+        showSuccess();
+        }
+    }, [location.state]);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
