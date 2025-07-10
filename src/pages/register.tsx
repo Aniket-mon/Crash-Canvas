@@ -15,7 +15,7 @@ export default function Register() {
   const [loading, setLoading] = useState(false);
   const toast = useRef<Toast>(null);
 
-  const showSuccess = () => {
+  const soSuccess = () => {
       toast.current?.show({severity:'success', summary: 'Success. You are one of us now.', detail:'Redirecting to Login page', life: 3000});
   }
 
@@ -43,7 +43,7 @@ export default function Register() {
     });
     const data = await res.json();
     if (res.ok) {
-      showSuccess();
+      soSuccess();
       setTimeout(() => {
         navigate("/login", { state: { showSuccessToast: true } });
       }, 2000); 

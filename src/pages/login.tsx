@@ -25,7 +25,12 @@ export default function Login() {
     
     useEffect(() => {
         if (location.state?.showSuccessToast) {
-        showSuccess();
+            toast.current?.show({
+                severity: 'success',
+                summary: 'Success. You are one of us now.',
+                detail: 'Redirecting to Login page',
+                life: 3000,
+            });
         }
     }, [location.state]);
 
