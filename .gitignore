@@ -21,3 +21,5 @@ Thumbs.db
 .env.*
 
 keygen.py
+
+*.ipynb
