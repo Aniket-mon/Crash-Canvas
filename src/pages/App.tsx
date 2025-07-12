@@ -10,18 +10,21 @@ import ProtectedRoute from "./ProtectedRoute";
 
 
 
+const csvUrl = "/data/accidents.csv";
+
 export default function App() {
   return (
     <Routes>
     <Route path="/" element={<Main />} />
-    <Route
+    {/* <Route
         path="/analysis"
         element={
           <ProtectedRoute>
             <Analysis />
           </ProtectedRoute>
         }
-      />
+      /> */}
+    <Route path="/analysis" element={<Analysis />} />
     <Route path="/about" element={<About />} />
     <Route path="/feedback" element={<Feedback />} />
     <Route path="/login" element={<Login />} />

@@ -1,0 +1,152 @@
+.filter-panel {
+  background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+  border-radius: 16px;
+  padding: 28px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin: 0 auto;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.filter-title {
+  color: #2c3e50;
+  font-size: 1.8rem;
+  margin-bottom: 24px;
+  text-align: center;
+  font-weight: 600;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.filter-title:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #3498db, #9b59b6);
+  border-radius: 3px;
+}
+
+.filter-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 768px) {
+  .filter-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.filter-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.filter-label {
+  color: #4a5568;
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-left: 4px;
+}
+
+.filter-dropdown, .filter-multiselect {
+  border: 1px solid #e2e8f0;
+  border-radius: 10px !important;
+  transition: all 0.3s ease;
+  background: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.filter-dropdown:hover, .filter-multiselect:hover {
+  border-color: #a0aec0;
+}
+
+.filter-dropdown:focus, .filter-multiselect:focus {
+  border-color: #4299e1;
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2);
+}
+
+.p-multiselect-panel {
+  border-radius: 10px !important;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1) !important;
+}
+
+.p-multiselect-token {
+  background: #4299e1 !important;
+  color: white !important;
+  border-radius: 8px !important;
+  padding: 4px 8px !important;
+}
+
+.filter-submit-btn {
+  background: linear-gradient(90deg, #3498db, #9b59b6);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 24px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
+}
+
+.filter-submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(52, 152, 219, 0.4);
+}
+
+.filter-submit-btn:active {
+  transform: translateY(0);
+}
+
+.filter-submit-icon {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.filter-submit-btn:hover .filter-submit-icon {
+  transform: translateX(4px);
+}
+
+/* Prevent tokens from wrapping or overflowing */
+.filter-multiselect .p-multiselect-label-container {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+}
+
+/* Optionally limit the width of the whole multiselect */
+.filter-multiselect {
+  width: 100% !important;
+  max-width: 100%;
+  height : 100%; /* Can also be 280px or a custom width */
+}
+
+
+/* Make sure multiselects and dropdowns span full width */
+.filter-dropdown,
+.filter-multiselect {
+  width: 100% !important;
+  min-width: 100% !important;
+  max-width: 100% !important;
+}
