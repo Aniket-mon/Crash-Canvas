@@ -3,11 +3,13 @@ import { Link } from "react-router-dom";
 
 const sidebarItems = [
   { label: "Home", path: "/" },
-  { label: "Dashboard", path: "/analysis" },
-  { label: "Patterns", path: "/patterns" },
-  { label: "Severity Perdiction", path: "/prediction" },
-  { label: "Yearly Trends", path: "/trends" },
-  { label: "Export", path: "/export" }
+  { label: "Spatial Analysis", path: "/analysis" },
+  { label: "Severity Perdiction", path: "/analysis/prediction" },
+  { label: "Yearly Trends", path: "/analysis/trends" },
+  { label: "Regulations", path: "/analysis/regulation" },
+  { label: "Driver Demographics", path: "/analysis/ddemo" },
+  { label: "Road Analytics ", path: "/analysis/roads" },
+  
 ];
 
 const Sidebar: React.FC = () => (

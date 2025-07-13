@@ -1,22 +1,22 @@
 //dashboard.tsx
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Sidebar from "../components/dashboard/Sidebar";
 import Heatmap from "../components/dashboard/Heatmap";
-import KPICards from "../components/dashboard/KPICards";
 import FiltersPanel from "../components/dashboard/FiltersPanel";
-import ExportControls from "../components/dashboard/ExportControls";
 import Loader from "../components/dashboard/Loader";
 import { fetchAndParseCSV } from "../utils/csvParser.ts";
 import { Filters } from "../types/filter";
 import { groupByLocation } from "../utils/Groupby"; 
 import { applyFilters } from "../utils/filterData"; 
-
+import { Toast } from "primereact/toast";
+import "./main.css"
 
 
 const csvUrl = "/data/accidents.csv";
 
 const Dashboard: React.FC = () => {
+  const toastRef = useRef<Toast>(null);
   const [data, setData] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [showFilters, setShowFilters] = useState(false);
@@ -33,17 +33,19 @@ const Dashboard: React.FC = () => {
     roadCondition: []
   });
   const filteredData = applyFilters(data, filters);
+  useEffect(() => {
+    if (!loading && filteredData.length === 0) {
+      toastRef.current?.show({
+        severity: "warn",
+        summary: "No data found",
+        detail: "No accidents match the selected filters.",
+        life: 3000,
+      });
+    }
+  }, [filteredData, loading]);
+
   const [columnOptions, setColumnOptions] = useState<string[]>([]);
   const [locationOptions, setLocationOptions] = useState<string[]>([]);
-
-  const totalAccidents = data.length;
-  const totalFatalities = data.reduce(
-    (sum, d) => sum + (Number(d["Number of Fatalities"]) || 0),
-    0
-  );
-  const fatalityRate = totalAccidents > 0
-    ? ((totalFatalities / totalAccidents) * 100).toFixed(1) + "%"
-    : "0%";
 
 
   useEffect(() => {
@@ -67,17 +69,34 @@ const Dashboard: React.FC = () => {
   return (
     <div className="flex min-h-screen overflow-auto">
       <Sidebar />
-      <main className="flex-1 p-4 bg-gray-50 flex flex-col gap-6">  
+      <main className="flex-1 p-4 bg-gray-50 flex flex-col gap-6">
+      <h1 className="text-4xl font-extrabold text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 animate-fade-in-down tracking-wide">
+         Real-Time Accident Spatial Analysis
+      </h1>
+  
+        <Toast ref={toastRef} position="bottom-right"/>
 
         
-        <div className="relative w-full h-[700px] rounded-xl shadow-lg overflow-hidden">
+        <div className="relative w-full h-[645px] rounded-xl shadow-lg overflow-hidden">
           <Heatmap points={groupByLocation(filteredData)} />
 
 
 
           
+          
           <button
-            onClick={() => setShowFilters(!showFilters)}
+            onClick={() => {
+              setShowFilters(!showFilters);
+
+              if (showFilters && groupByLocation(filteredData).length > 0) {
+                toastRef.current?.show({
+                  severity: "success",
+                  summary: "✅ Accidents Visualized",
+                  detail: `${groupByLocation(filteredData).length} accident(s) matched the filters.`,
+                  life: 3000,
+                });
+              }
+            }}
             className="absolute top-4 right-4 z-[1000] bg-gradient-to-r from-blue-500 to-indigo-500 text-white px-5 py-3 rounded-full shadow-xl hover:bg-gradient-to-r hover:from-blue-600 hover:to-indigo-600 hover:scale-105 transition-all duration-300 flex items-center gap-2 font-medium"
           >
             {showFilters ? '✕ Close' : '🛠️ Filter'}
@@ -89,9 +108,17 @@ const Dashboard: React.FC = () => {
 
                 
               </div>
-              <FiltersPanel 
-              filters={filters} 
-              setFilters={setFilters}
+              <FiltersPanel
+                filters={filters}
+                setFilters={setFilters}
+                onApplyFilters={() => {
+                  toastRef.current?.show({
+                    severity: "success",
+                    summary: "✅ Accidents Visualized",
+                    detail: `${groupByLocation(applyFilters(data, filters)).length} accident(s) matched the filters.`,
+                    life: 3000,
+                  });
+                }}
               />
             </div>
           )}

@@ -36,7 +36,7 @@ const Heatmap: React.FC<Props> = ({ points }) => (
       <Circle
         key={i}
         center={[pt.lat, pt.lng]}
-        radius={pt.intensity * 500}
+        radius={pt.intensity * 1000}
         fillOpacity={0.5}
         color={severityColors[pt.severity]}
       >

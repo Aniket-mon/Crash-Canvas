@@ -8,8 +8,8 @@ export default function Analysis() {
   const navigate = useNavigate();
   const location = useLocation();
   const toast = useRef<Toast>(null);
-  // const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
-  const isLoggedIn = true; // temporarily force login
+  const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+  
 
   const [showLoader] = useState(!isLoggedIn);
 

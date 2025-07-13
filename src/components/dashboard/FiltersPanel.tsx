@@ -9,7 +9,7 @@ import "./filters.css";
 type Props = {
   filters: Filters;
   setFilters: React.Dispatch<React.SetStateAction<Filters>>;
-   
+  onApplyFilters?: () => void;
 };
 
 const locationOptionsRaw = ["Curve", "Straight Road", "Bridge", "Intersection"];
@@ -89,6 +89,7 @@ const FiltersPanel: React.FC<Props> = ({ filters, setFilters }) => {
 
   const handleSubmit = () => {
     setFilters(tempFilters);
+    if (onApplyFilters) onApplyFilters();
   };
 
   const handleClear = () => {
@@ -230,3 +231,7 @@ const FiltersPanel: React.FC<Props> = ({ filters, setFilters }) => {
 };
 
 export default FiltersPanel;
+function onApplyFilters() {
+  throw new Error("Function not implemented.");
+}
+
