@@ -10,7 +10,7 @@ import { Filters } from "../types/filter";
 import { groupByLocation } from "../utils/Groupby"; 
 import { applyFilters } from "../utils/filterData"; 
 import { Toast } from "primereact/toast";
-import "./main.css"
+import "./Main.css"
 
 
 const csvUrl = "/data/accidents.csv";
