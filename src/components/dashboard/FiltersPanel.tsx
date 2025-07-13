@@ -1,28 +1,21 @@
+//FiltersPanel.tsx
+
 import React, { useState, useEffect } from "react";
 import { Dropdown } from "primereact/dropdown";
 import { MultiSelect } from "primereact/multiselect";
 import { Filters } from "../../types/filter";
 import "./filters.css";
 
-
 type Props = {
   filters: Filters;
   setFilters: React.Dispatch<React.SetStateAction<Filters>>;
+   
 };
 
-const regionOptions = [
-  { label: "ALL", value: "All" },
-  { label: "State-wise", value: "State-wise" },
-];
+const locationOptionsRaw = ["Curve", "Straight Road", "Bridge", "Intersection"];
+const locationOptions = locationOptionsRaw.map(ld => ({ label: ld, value: ld }));
 
-const stateOptions = [
-  "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh",
-  "Goa", "Gujarat", "Haryana", "Himachal Pradesh", "Jharkhand", "Jammu and Kashmir",
-  "Karnataka", "Kerala", "Madhya Pradesh", "Maharashtra", "Manipur",
-  "Meghalaya", "Mizoram", "Nagaland", "Odisha", "Punjab",
-  "Rajasthan", "Sikkim", "Tamil Nadu", "Telangana", "Tripura",
-  "Uttar Pradesh", "Uttarakhand", "West Bengal"
-].map(state => ({ label: state, value: state }));
+
 
 const severityOptions = [
   { label: "Fatal", value: "Fatal" },
@@ -43,9 +36,7 @@ const roadTypeOptions = roadTypeOptionsRaw.map(rt => ({ label: rt, value: rt }))
 const roadConditionOptionsRaw = ["Dry", "Wet", "Damaged", "Under Construction"];
 const roadConditionOptions = roadConditionOptionsRaw.map(rc => ({ label: rc, value: rc }));
 
-
 const yearOptions = [
-  { label: "ALL", value: null },
   ...Array.from({ length: 6 }, (_, i) => ({
     label: `${2018 + i}`,
     value: 2018 + i,
@@ -53,7 +44,6 @@ const yearOptions = [
 ];
 
 const monthOptions = [
-  { label: "ALL", value: null },
   { label: "January", value: 1 },
   { label: "February", value: 2 },
   { label: "March", value: 3 },
@@ -73,23 +63,17 @@ const customTokenRenderer = (
   options: { label: string; value: string }[]
 ): React.ReactNode => {
   if (!value || value.length === 0) return "Select";
-
   if (value.length === 1) {
     const label = options.find(opt => opt.value === value[0])?.label || value[0];
     return <span className="p-multiselect-token">{label}</span>;
   }
-
   return <span className="p-multiselect-token">*</span>;
 };
-
-
 
 const FiltersPanel: React.FC<Props> = ({ filters, setFilters }) => {
   const [tempFilters, setTempFilters] = useState<Filters>(filters);
 
-  useEffect(() => {
-    setTempFilters(filters);
-  }, [filters]);
+
 
   const handleMultiSelect = (
     field: keyof Filters,
@@ -107,35 +91,41 @@ const FiltersPanel: React.FC<Props> = ({ filters, setFilters }) => {
     setFilters(tempFilters);
   };
 
+  const handleClear = () => {
+    setTempFilters({
+      ALD: [],
+      year: undefined,
+      month: undefined,
+      day: undefined,
+      severity: [],
+      vehicleType: [],
+      weather: [],
+      roadType: [],
+      roadCondition: [],
+    });
+  };
+
   return (
     <div className="filter-panel">
-      <h2 className="filter-title">Filter Accidents Data</h2>
-      
+      <div className="filter-header">
+        <h2 className="filter-title">Filter Accidents Data</h2>
+        <button className="clear-btn" onClick={handleClear}>Clear All ✨</button>
+      </div>
+
       <div className="filter-grid">
         <div className="filter-column">
           <div className="filter-group">
-            <label className="filter-label">Region</label>
-            <Dropdown
-              value={tempFilters.region}
-              options={regionOptions}
-              onChange={e => setTempFilters({ ...tempFilters, region: e.value, state: undefined })}
-              placeholder="Select Region"
-              className="filter-dropdown"
+            <label className="filter-label">Location Details</label>
+            <MultiSelect
+              value={tempFilters.ALD || []}
+              options={locationOptions}
+              onChange={e => setTempFilters({ ...tempFilters, ALD: e.value })}
+              placeholder="Select Location"
+              className="filter-multiselect"
+              display="chip"
+              selectedItemTemplate={(value) => customTokenRenderer(value, locationOptions)}
             />
           </div>
-
-          {tempFilters.region === "State-wise" && (
-            <div className="filter-group">
-              <label className="filter-label">State</label>
-              <Dropdown
-                value={tempFilters.state || ""}
-                options={stateOptions}
-                onChange={e => setTempFilters({ ...tempFilters, state: e.value })}
-                placeholder="Select State"
-                className="filter-dropdown"
-              />
-            </div>
-          )}
 
           <div className="filter-group">
             <label className="filter-label">Year</label>
@@ -169,8 +159,6 @@ const FiltersPanel: React.FC<Props> = ({ filters, setFilters }) => {
               className="filter-multiselect"
               display="chip"
               selectedItemTemplate={(value) => customTokenRenderer(value, severityOptions)}
-
-
             />
           </div>
         </div>
@@ -186,8 +174,6 @@ const FiltersPanel: React.FC<Props> = ({ filters, setFilters }) => {
               className="filter-multiselect"
               display="chip"
               selectedItemTemplate={(value) => customTokenRenderer(value, vehicleOptions)}
-
-
             />
           </div>
 
@@ -201,9 +187,6 @@ const FiltersPanel: React.FC<Props> = ({ filters, setFilters }) => {
               className="filter-multiselect"
               display="chip"
               selectedItemTemplate={(value) => customTokenRenderer(value, weatherOptions)}
-
-
-            
             />
           </div>
 
@@ -217,8 +200,6 @@ const FiltersPanel: React.FC<Props> = ({ filters, setFilters }) => {
               className="filter-multiselect"
               display="chip"
               selectedItemTemplate={(value) => customTokenRenderer(value, roadTypeOptions)}
-
-
             />
           </div>
 
@@ -232,7 +213,6 @@ const FiltersPanel: React.FC<Props> = ({ filters, setFilters }) => {
               className="filter-multiselect"
               display="chip"
               selectedItemTemplate={(value) => customTokenRenderer(value, roadConditionOptions)}
-
             />
           </div>
         </div>
