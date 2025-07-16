@@ -6,6 +6,9 @@ A Road Accident Analysis and Prediction System for data-driven traffic safety in
 
 Crash Canvas analyzes historical accident data to identify patterns, predict high-risk areas, and provide actionable insights for improving road safety through machine learning and spatial analysis.
 
+### [Check out the project](crash-canvas.vercel.app) 
+
+
 ## Features
 
 - **Data Processing**: Clean and process accident datasets
