@@ -30,7 +30,7 @@ Crash Canvas provides a powerful suite of tools for comprehensive road safety an
 
 ---
 
-## 🏗️ System Architecture & Methodology
+##  System Architecture & Methodology
 
 The system is designed with a modern, data-centric architecture, starting from data collection and ending with an interactive user dashboard.
 
@@ -45,7 +45,7 @@ The system is designed with a modern, data-centric architecture, starting from d
 
 ---
 
-## 📊 Results & Key Findings
+##  Results & Key Findings
 
 Our predictive model proved to be highly reliable for forecasting accident severity in real-world scenarios.
 
@@ -69,7 +69,7 @@ Our predictive model proved to be highly reliable for forecasting accident sever
 
 ---
 
-## ✍️ Authors & Acknowledgements
+##  Authors & Acknowledgements
 Authors :
 
 1. Vaishnavi Dwivedi - [Linkedin](https://www.linkedin.com/in/vaishnavi-dwivedi-34068a229/) 
