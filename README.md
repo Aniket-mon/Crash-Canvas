@@ -2,7 +2,7 @@
 
 [![Version](https://img.shields.io/badge/version-1.1.0-blue.svg)](#) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](#) [![ML Model](https://img.shields.io/badge/Model-XGBoost-blue.svg)](#) [![Accuracy](https://img.shields.io/badge/Accuracy-95.1%25-success.svg)](#)
 
-**Crash Canvas** is a **Road Accident Analysis and Prediction System** for data-driven traffic safety insights. This project was developed to tackle the growing problem of traffic accidents in India by moving beyond simple pattern analysis to create real-world safety solutions that save lives. It analyzes historical accident data to identify patterns, predict high-risk areas, and provide actionable insights for improving road safety through machine learning and spatial analysis.
+**Crash Canvas** is a <ins>Road Accident Analysis and Prediction System</ins> for data-driven traffic safety insights. This project was developed to tackle the growing problem of traffic accidents in India by moving beyond simple pattern analysis to create real-world safety solutions that save lives. It analyzes historical accident data to identify patterns, predict high-risk areas, and provide actionable insights for improving road safety through machine learning and spatial analysis.
 
 ---
 
