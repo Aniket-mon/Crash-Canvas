@@ -15,7 +15,6 @@ export default function Feedback() {
         setTimeout(() => setIsSubmitted(false), 3000);
     };
 
-    // Remove loading state and effect to keep loading screen infinite
     return (
         <div className="relative bg-[url('../../assets/D1.png')] bg-cover bg-center flex flex-col items-center justify-start h-screen overflow-y-auto space-y-32">
             <Header />

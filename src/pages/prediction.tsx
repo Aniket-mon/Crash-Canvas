@@ -153,7 +153,7 @@ const Prediction: React.FC = () => {
                 </ResponsiveContainer>
               </div>
 
-              {/* Additional Charts Restored */}
+              {/* Additional Charts */}
               <div className="bg-white p-6 rounded-2xl shadow-lg w-full h-[500px] mb-12">
                 <h3 className="text-2xl font-semibold text-center mb-4 text-gray-800">
                    Day of Week vs. Accident Severity
@@ -208,7 +208,6 @@ const Prediction: React.FC = () => {
                 </ResponsiveContainer>
               </div>
 
-              {/* Download Button */}
               <div className="flex justify-center mt-10">
                 <button
                   onClick={handleDownload}

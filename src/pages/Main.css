@@ -1,4 +1,5 @@
-/* Add custom styles for the FinalMain component */
+/* main.css */
+
 .bg-gradient-text {
   background: linear-gradient(90deg, #FFD700, #7CFC00, #00FFFF);
   -webkit-background-clip: text;
@@ -6,7 +7,6 @@
   color: transparent;
 }
 
-/* Navigation menu item hover styles - ONLY underline effect */
 .navigation-item {
   position: relative;
   white-space: nowrap;
@@ -60,4 +60,205 @@
 
 .animate-fade-in-down {
   animation: fade-in-down 1s ease-out;
+}
+
+@keyframes popup-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-popup-fade {
+  animation: popup-fade 0.2s ease-out;
+}
+
+/*Discover Button*/
+
+.discover-button-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Keyframe for the shine effect */
+@keyframes shine-animation {
+  0% {
+    transform: translateX(-150%) skewX(-25deg);
+  }
+  100% {
+    transform: translateX(150%) skewX(-25deg);
+  }
+}
+
+/* The main button style */
+.discover-button-video {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem; 
+  padding: 1rem 2rem; 
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 9999px;
+  color: white;
+  font-size: 1.25rem; 
+  font-weight: 600;
+  overflow: hidden; 
+  transform: translateZ(0);
+  box-shadow: 0 0 20px rgba(167, 139, 250, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.2);
+  z-index: 10; 
+
+  /* gradient background */
+  background: radial-gradient(circle at 50% 100%, rgba(167, 139, 250, 0.4), transparent 50%),
+              linear-gradient(180deg, #3b2a68, #2a1d50);
+}
+
+/* The shine pseudo-element */
+.discover-button-video::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0) 100%);
+  transform: translateX(-150%) skewX(-25deg);
+}
+
+.discover-button-video:hover::before {
+  animation: shine-animation 1s ease-in-out;
+}
+
+
+/* Particle Effects*/
+@keyframes sparkle {
+  0%, 100% { transform: scale(0.5); opacity: 0.2; }
+  50% { transform: scale(1); opacity: 1; }
+}
+
+.particle {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  animation: sparkle 2s infinite ease-in-out;
+  z-index: 20; 
+}
+.particle-1 { top: 20%; left: 15%; width: 3px; height: 3px; animation-delay: 0s; }
+.particle-2 { top: 80%; left: 10%; width: 2px; height: 2px; animation-delay: -0.5s; }
+.particle-3 { top: 10%; left: 85%; width: 3px; height: 3px; animation-delay: -1s; }
+.particle-4 { top: 90%; left: 90%; width: 2px; height: 2px; animation-delay: -1.5s; }
+.particle-5 { top: 50%; left: 25%; width: 2px; height: 2px; animation-delay: -0.2s; }
+.particle-6 { top: 30%; left: 70%; width: 3px; height: 3px; animation-delay: -0.8s; }
+.particle-7 { top: 75%; left: 60%; width: 2px; height: 2px; animation-delay: -1.2s; }
+.particle-8 { top: 40%; left: 45%; width: 2px; height: 2px; animation-delay: -1.8s; }
+
+
+/* Collapse Button*/
+.collapse-button {
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 9999px;
+  padding: 0.5rem 1rem; /* 8px 16px */
+  font-size: 0.875rem; /* 14px */
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem; /* 8px */
+  transition: all 0.2s ease-in-out;
+  background: linear-gradient(45deg, rgba(167, 139, 250, 0.7), rgba(236, 72, 153, 0.7));
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+.collapse-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(45deg, rgba(167, 139, 250, 0.9), rgba(236, 72, 153, 0.9));
+}
+
+/*Dark/Light Mode */
+.theme-switch-wrapper {
+  display: flex;
+  align-items: center;
+  position: fixed; 
+  top: 2rem; 
+  left: 2rem;  
+  z-index: 50; 
+}
+
+.theme-switch {
+  display: inline-block;
+  height: 34px;
+  width: 60px;
+  position: relative;
+}
+
+.theme-switch input {
+  display: none;
+}
+
+.slider {
+  background-color: #080809; /* background for darrk mode */
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  background-color: #fff;
+  bottom: 4px;
+  content: "";
+  height: 26px;
+  left: 4px;
+  position: absolute;
+  transition: .4s;
+  width: 26px;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+input:checked + .slider {
+  background-color: #03f237; /* background for light mode */
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.slider .sun-icon, .slider .moon-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  color: #060074; /* Sun color */
+}
+
+.slider .sun-icon {
+  left: 8px;
+  opacity: 0;
+  transform: translateY(-50%) scale(0.5);
+}
+
+.slider .moon-icon {
+  right: 8px;
+  opacity: 1;
+  transform: translateY(-50%) scale(1);
+  color: #ffffff; /* Moon color */
+}
+
+input:checked + .slider .sun-icon { 
+  opacity: 1;
+  transform: translateY(-50%) scale(1);
+}
+
+input:checked + .slider .moon-icon {
+  opacity: 0;
+  transform: translateY(-50%) scale(0.5);
 }

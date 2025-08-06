@@ -38,7 +38,7 @@ export function groupByLocation(data: any[]): Point[] {
       lat,
       lng,
       severity,
-      intensity: 1, // each row is one accident
+      intensity: 1, 
       casualties,
       fatalities,
       vehicleType,

@@ -37,13 +37,13 @@ export function applyFilters(data: any[], filters: Filters): any[] {
       !filters.severity.includes(item["Accident Severity"])
     ) return false;
 
-    // Vehicle Type (key fixed)
+    // Vehicle Type 
     if (
       filters.vehicleType.length &&
       !filters.vehicleType.includes(item["Vehicle Type Involved"])
     ) return false;
 
-    // Weather (key fixed)
+    // Weather 
     if (
       filters.weather.length &&
       !filters.weather.includes(item["Weather Conditions"])
