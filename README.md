@@ -57,7 +57,7 @@ Our predictive model proved to be highly reliable for forecasting accident sever
 
 ---
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 | Category                 | Tools & Technologies                                                                                             |
 | ------------------------ | ---------------------------------------------------------------------------------------------------------------- |
